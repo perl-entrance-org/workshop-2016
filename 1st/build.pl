@@ -8,14 +8,21 @@ use Path::Tiny;
 my $src_dir = './src';
 my $dst_dir = '.';
 my @part1 = qw/
+    intro.md
+    os.md
+    install_ubuntu.md
 /;
 my @part2 = qw/
+    terminal_and_shell.md
+    editor.md
 /;
 my @part3 = qw/
-  about_perl_entrance.md
-  about_perl_language.md
-  more_study.md
-  hello_world.md
+    intro.md
+    icebreak.md
+    about_perl_entrance.md
+    about_perl_language.md
+    more_study.md
+    hello_world.md
 /;
 
 path("$dst_dir/part1.md")->spew_utf8(slurp_md(@part1));
