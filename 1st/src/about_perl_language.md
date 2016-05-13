@@ -86,6 +86,7 @@
 - YAPC ... Yet Another Perl Conference
     - 年に一度行われる, 日本最大規模のPerlの祭典です.
 - 今年は[北海道で開催予定](http://blog.perlassociation.org/2016/04/japan-perl-associationjpa.html)と告知されています.
+- また, [Yet Another Pachimon Conference](http://yapcasia8oji-2016mid.hachiojipm.org/)なるイベントも...
 
 ## PerlとCGI
 - 一時期, ｢PerlでWebサービスを作るならCGI｣という時代がありましたが, 今はそうではありません.

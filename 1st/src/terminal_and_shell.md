@@ -45,6 +45,7 @@
 
 - `ls`は, 現在居るディレクトリにあるファイルを表示します.
 - `ls -a`は, ファイルを**全て**表示します.
+    - `.`(ドット)で始まる, 通常は見えない隠しファイルも表示します
 
 ## コマンド集(pwd)
     $ pwd
@@ -78,10 +79,11 @@
     $ ls
     sample2
 
-- `rm [OPTION] FILE`は, `FILE`を削除します.
+- `rm [OPTION] FILENAME`は, `FILENAME`のファイルを削除します.
     - `target file`は半角スペースで区切ることで複数個指定することができます.
-- ディレクトリを削除するときは, `[OPTION]`として`-r`を指定し, `rm -r FILE`で削除しなければなりません.
+- ディレクトリを削除するときは, `[OPTION]`として`-r`を指定し, `rm -r DIR`で削除しなければなりません.
     - `r`は再帰(recursion)を意味します.
+- ちなみに, `touch`はファイルが存在しないときに空のファイルを生成するコマンドです.
 
 ## コマンド集(cp)
     $ ls
@@ -103,12 +105,12 @@
 - `mv [OPTION] SOURCE DEST`で, `SOURCE`を`DEST`に移動します.
     - ファイルやディレクトリの名前を変更する為にも使えます.
 
-## コマンド集(pcmanfm)
-    $ pcmanfm [DIRECTORY]
+## コマンド集(nautilus)
+    $ nautilus [DIRECTORY]
 
-- `pcmanfm [DIRECTORY]`で, `DIRECTORY`をPCManFMというファイルマネージャで開きます.
-- `pcmanfm` で現在のディレクトリを開きます.
-- MacにはPCManFMが搭載されていないので, 使えません.
+- `nautilus [DIRECTORY]`で, `DIRECTORY`をNautilusというファイルマネージャで開きます.
+- `nautilus` で現在のディレクトリを開きます.
+- MacにはNautilusが搭載されていないので, 使えません.
 
 ## コマンド集(open)
     $ open .
@@ -120,5 +122,7 @@
 
 ## 練習問題
 - ホームディレクトリに`perl-entrance`というディレクトリを作ろう.
+    - ｢ホームディレクトリ｣とは, ユーザごとに用意された作業場所のようなものです.
+    - `cd`を押すと, 自動的にホームディレクトリに移動します.
 - 作った`perl-entrance`ディレクトリに移動しよう.
-- カレントディレクトリ(`perl-entrance`)を, `pcmanfm`もしくは`open`を使って, ファイルマネージャで開いてみよう.
+- カレントディレクトリ(`perl-entrance`)を, `nautilus`もしくは`open`を使って, ファイルマネージャで開いてみよう.
