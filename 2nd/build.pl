@@ -7,7 +7,7 @@ use Path::Tiny;
 
 my @slides = qw/
   01-intro.md
-  02-use.md
+  02-strict-warning.md
   03-scalar.md
   04-stdin-calc.md
   05-if-else.md
