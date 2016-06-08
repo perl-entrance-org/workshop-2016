@@ -24,29 +24,29 @@
 
 ## 基本的な演算子(四則演算)
 
-    my $hoge = 4;
-    my $foo  = 2;
-    my $res;
-    $res = $hoge + $foo;  # 4 + 2 = 6
-    $res = $hoge - $foo;  # 4 - 2 = 2
-    $res = $hoge * $foo;  # 4 * 2 = 8
-    $res = $hoge / $foo;  # 4 / 2 = 2
-    $res = $hoge % $foo;  # 4 % 2 = 0
-    $res = $hoge ** $foo; # 4 の 2乗 は 16
+    my $foo = 4;
+    my $bar  = 2;
+    my $result;
+    $result = $foo + $bar;  # 4 + 2 = 6
+    $result = $foo - $bar;  # 4 - 2 = 2
+    $result = $foo * $bar;  # 4 * 2 = 8
+    $result = $foo / $bar;  # 4 / 2 = 2
+    $result = $foo % $bar;  # 4 % 2 = 0
+    $result = $foo ** $bar; # 4の2乗は 16
 
-- `perl`では, C言語と異なりべき乗の計算を簡単に行うことができます
+- `Perl`はC言語と異なり, べき乗の計算を簡単に行うことができます
 
 ## 基本的な演算子(文字列連結)
     my $foo = 'hoge';
     my $bar = 123;
-    my $baz = $foo . $bar; # hoge123
-    print $foo . $baz . "\n"; # hogehoge123
+    my $baz = $foo . $bar; # => hoge123
+    print $foo . $baz . "\n"; # => hogehoge123
 
 - `.`で, 文字列や変数を連結することができます
 
 ## 演算の順番
-    my $hoge = 2 + 4 * 3;   # 14
-    my $fuga = (2 + 4) * 3; # 18
+    my $foo = 2 + 4 * 3;   # => 14
+    my $bar = (2 + 4) * 3; # => 18
 
 - 演算の順序は, `()`を付けることで変更することができます
     - 通常の数学と同じく, Perlも足し算･引き算より掛け算･割り算の優先順位が高いです
