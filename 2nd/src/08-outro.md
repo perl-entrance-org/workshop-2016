@@ -15,3 +15,7 @@
 
 - <https://github.com/perl-entrance-org/workshop-2016/tree/master/2nd/answer>
   - 各会場の講師が書いた, 練習問題の解答例はこちらで公開しています
+  - ※講義終了後に随時追加していきます
+
+- <https://github.com/perl-entrance-org/workshop-2015-02/tree/master/answer>
+  - 昨年分の解答例はこちらで公開しています

@@ -13,9 +13,9 @@
 ## 配列
 
     my @array = ( 1, "foo", 3 );
-    print "$array[0]\n"; # 1
-    print "$array[1]\n"; # foo
-    print "$array[2]\n"; # 3
+    print "$array[0]\n"; #=> 1
+    print "$array[1]\n"; #=> foo
+    print "$array[2]\n"; #=> 3
 
 - 配列の一つ一つの要素にアクセスする場合は`$変数名[添字]`を使います
     - 添字は1ではなく0からスタートして, 1ずつ増えます
@@ -29,7 +29,7 @@
 ## 配列
     my @array = ( 1, "foo", 3 );
     my $sum = $array[0] + $array[2];
-    print "$sum\n" # => 4
+    print "$sum\n" #=> 4
 
 - 配列の要素は普通のスカラ変数と同じように扱えるので, 代入や計算ができます
 

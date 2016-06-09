@@ -25,7 +25,7 @@
 ## 基本的な演算子(四則演算)
 
     my $foo = 4;
-    my $bar  = 2;
+    my $bar = 2;
     my $result;
     $result = $foo + $bar;  # 4 + 2 = 6
     $result = $foo - $bar;  # 4 - 2 = 2
@@ -39,14 +39,14 @@
 ## 基本的な演算子(文字列連結)
     my $foo = 'hoge';
     my $bar = 123;
-    my $baz = $foo . $bar; # => hoge123
-    print $foo . $baz . "\n"; # => hogehoge123
+    my $baz = $foo . $bar;    #=> hoge123
+    print $foo . $baz . "\n"; #=> hogehoge123
 
 - `.`で, 文字列や変数を連結することができます
 
 ## 演算の順番
-    my $foo = 2 + 4 * 3;   # => 14
-    my $bar = (2 + 4) * 3; # => 18
+    my $foo = 2 + 4 * 3;   #=> 14
+    my $bar = (2 + 4) * 3; #=> 18
 
 - 演算の順序は, `()`を付けることで変更することができます
     - 通常の数学と同じく, Perlも足し算･引き算より掛け算･割り算の優先順位が高いです
