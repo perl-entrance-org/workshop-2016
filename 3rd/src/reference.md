@@ -158,7 +158,7 @@ SCALAR() や ARRAY()、HASH() の括弧の中身に書いてあるのはその�
 リファレンスはコピーではなく参照なので、デリファレンスして更にその中身を変更すると、参照元(実体)が破壊されます。
 
 ## 練習問題
-[score.pl](https://github.com/perl-entrance-org/workshop-2016/blob/master/code/score.pl) には上記のようなハッシュリファレンスがいくつか宣言してあります。
+[score.pl](https://github.com/perl-entrance-org/workshop-2016/blob/master/3rd/code/score.pl) には上記のようなハッシュリファレンスがいくつか宣言してあります。
 
 各人物の `perl`, `ruby`, `python` ... といった言語の合計値を key `sum` の value としてリファレンスに追加しましょう。  
 例: `$alice` の合計値は `300` なので、以下のようになります。（ただし、key の順番がこの通りになるとは限りません）
@@ -177,4 +177,4 @@ my $alice = {
 ```
 
 ## 練習問題
-[practice.md](https://github.com/perl-entrance-org/workshop-2016/blob/master/practice.md#scorepl) には練習問題の続きがあるので、チャレンジしてみてください。
+[practice.md](https://github.com/perl-entrance-org/workshop-2016/blob/master/3rd/practice.md#scorepl) には練習問題の続きがあるので、チャレンジしてみてください。

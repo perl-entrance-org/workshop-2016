@@ -25,7 +25,7 @@
 
 ## 2. score.pl
 
-[score.pl](https://github.com/perl-entrance-org/workshop-2016/blob/master/code/score.pl) には、下記のようなハッシュリファレンスがいくつか宣言してあります。
+[score.pl](https://github.com/perl-entrance-org/workshop-2016/blob/master/3rd/code/score.pl) には、下記のようなハッシュリファレンスがいくつか宣言してあります。
 
 ```
 my $alice = {
