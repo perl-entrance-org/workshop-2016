@@ -3,48 +3,48 @@
 use strict;
 use warnings;
 
-my $papix = {
-    name        => 'papix',
-    affiliation => 'namba.pm',
+my $alice = {
+    name        => 'Alice',
+    country     => 'England',
     perl        => 60,
-    python      => 50,
-    ruby        => 50,
-    php         => 80,
+    python      => 80,
+    ruby        => 80,
+    php         => 50,
     binary      => 30,
 };
-my $boolfool = {
-    name        => 'boolfool',
-    affiliation => 'namba.pm',
+my $bob = {
+    name        => 'bob',
+    country     => 'America',
     perl        => 40,
     python      => 10,
     ruby        => 20,
     php         => 30,
-    binary      => 10,
+    binary      => 50,
 };
-my $moznion = {
-    name        => 'moznion',
-    affiliation => 'hachioji.pm',
+my $carol = {
+    name        => 'Carol',
+    country     => 'England',
     perl        => 100,
     python      => 70,
     ruby        => 80,
     php         => 50,
     binary      => 50,
 };
-my $binarian = {
-    name        => 'binarian',
-    affiliation => 'hachioji.pm',
+my $dave = {
+    name        => 'Dave',
+    country     => 'Canada',
     perl        => 10,
     python      => 11,
     ruby        => 1,
     php         => 100,
     binary      => 100,
 };
-my $uzulla = {
-    name        => 'uzulla',
-    affiliation => 'hachioji.pm',
+my $ellen = {
+    name        => 'Ellen',
+    country     => 'America',
     perl        => 1,
-    python      => 0.01,
+    python      => 15,
     ruby        => 0.5,
-    php         => 4,
+    php         => 60,
     binary      => 0.01,
 };

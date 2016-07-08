@@ -23,23 +23,19 @@
 
 複数のハッシュリファレンスを格納した配列を for でひと通り回して (各ハッシュリファレンスにアクセスし)、配列リファレンス`favorite_foods`の中身を別の配列にひと通り格納して……という方法が1つ考えられますね！
 
-#### 解答例
-
-[詳しい解説](http://hachiojipm.github.io/entry/2013-09-09-02.html)
-
 ## 2. score.pl
 
-[score.pl](https://github.com/perl-entrance-org/workshop-2014-03/blob/master/code/score.pl) には、下記のようなハッシュリファレンスがいくつか宣言してあります。
+[score.pl](https://github.com/perl-entrance-org/workshop-2016/blob/master/code/score.pl) には、下記のようなハッシュリファレンスがいくつか宣言してあります。
 
 ```
-my $papix = {
-    name        => 'papix',
-    affiliation => 'namba.pm',
-    perl        => 40,
-    python      => 10,
-    ruby        => 20,
-    php         => 0,
-    binary      => 0,
+my $alice = {
+    name        => 'Alice',
+    country     => 'England',
+    perl        => 60,
+    python      => 80,
+    ruby        => 80,
+    php         => 50,
+    binary      => 30,
 };
 ```
 
@@ -53,26 +49,20 @@ my $papix = {
 
 #### 出力例
 
-`$papix` の合計値は `270` なので、以下のようになります。（ただし、key の順番がこの通りになるとは限りません）
+`$alice` の合計値は `300` なので、以下のようになります。（ただし、key の順番がこの通りになるとは限りません）
 
 ```
-my $papix = {
-    name        => 'papix',
-    affiliation => 'namba.pm',
+my $alice = {
+    name        => 'Alice',
+    country     => 'England',
     perl        => 60,
-    python      => 50,
-    ruby        => 50,
-    php         => 80,
+    python      => 80,
+    ruby        => 80,
+    php         => 50,
     binary      => 30,
-    sum         => 270,
+    sum         => 300,
 };
 ```
-
-#### 解答例
-
-- [解答例1](https://github.com/perl-entrance-org/workshop-2014-03/blob/master/code/tokyo1/score.pl)
-- [解答例2](https://github.com/perl-entrance-org/workshop-2014-03/blob/master/code/tokyo1/score_kai.pl)
-- [解答例3](https://github.com/perl-entrance-org/workshop-2014-03/blob/master/code/osaka/5-21-socre.pl)
 
 ### 2-2. 言語ごとの平均
 
@@ -87,8 +77,8 @@ my $papix = {
 
 ```
 $VAR1 = {
-          'papix' => ??,
-          'boolfool' => ??,
+          'alice' => ??,
+          'bob' => ??,
           ...
         };
 ```
@@ -111,28 +101,28 @@ $VAR1 = {
 #### 出力例
 
 ```
-boolfool
+bob
   perl   : ★★
   python :
   ruby   : ★
-  php    :
-  binary :
+  php    : ★
+  binary : ★★
 ```
 
 
-### 2-4. 所属毎のperlハイスコアリストを作る
+### 2-4. 国毎のperlハイスコアリストを作る
 
-`$highscore`というハッシュリファレンスを作成し、所属（affiliation）ごとの `perl` のスコアが 60 以上の人の名前を格納しましょう。
+`$highscore`というハッシュリファレンスを作成し、国（count）ごとの `perl` のスコアが 60 以上の人の名前を格納しましょう。
 
 #### ヒント
 
-ハッシュリファレンスのkeyには`affiliation`を利用し、valueには配列のリファレンスを格納すると良いでしょう。
+ハッシュリファレンスのkeyには`country`を利用し、valueには配列のリファレンスを格納すると良いでしょう。
 
 #### 出力例
 
 ```
-namba.pm: papix boolfool
-hachioji.pm: ???
+England: Alice
+Canada: ???
 ```
 
 ### 2-5. JSON風Dumper (オプション)
@@ -144,24 +134,22 @@ hachioji.pm: ???
 ```
 [
   {
-    "python":10
-    "binary":0
-    "name":"boolfool"
-    "ruby":20
-    "perl":40
-    "php":0
-    "affiliation":"namba.pm"
-    "sum":70
+    "python":80
+    "binary":30
+    "name":"Alice"
+    "ruby":80
+    "perl":60
+    "php":50
+    "country":"England"
   },
   {
-    "python":50
-    "binary":0
-    "name":"papix"
+    "python":10
+    "binary":50
+    "name":"Bob"
     "ruby":50
-    "perl":60
-    "php":0
-    "affiliation":"namba.pm"
-    "sum":160
+    "perl":40
+    "php":30
+    "affiliation":"America"
   }
 ]
 ```
