@@ -1,9 +1,10 @@
 ## ハッシュの便利関数たち
 
-- keys
-- values
-- delete
-- exists
+- ここでは, ハッシュを便利に扱うための関数の説明を行います.
+    - keys
+    - values
+    - delete
+    - exists
 
 ## keys
     my %hash = (
