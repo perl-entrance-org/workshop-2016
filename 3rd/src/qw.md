@@ -3,20 +3,22 @@
 
 - これまでのリストの書き方, `('this', 'is', 'list', 1, 2, 3)` と違って、クォート記号が不要です。
 - 空白文字 (スペース、タブ、改行など) は捨てられ、残ったものがリストの要素になります。
-- なので、こういう書き方もできます。
 
+## qw ショートカット
     my @arary = qw(
         Alice
         Bob
     );
 
+- なので、こういう書き方もできます。
+
 ## qw ショートカット
-    # デリミタ (区切り文字) には任意の記号文字が使えます。例えば...
+
     qw! Alice Bob !
     qw# Alice Bob #
     qw/ Alice Bob /
 
-これらは前述の
+デリミタ (区切り文字) には任意の記号文字が使えます。これらは前述の
 
     qw( Alice Bob )
 
@@ -30,9 +32,11 @@
 解決法は2つ
 
     # 1. スラッシュをバックスラッシュでエスケープしてあげる
-    qw/ http:\/\/www.perl-entrance.org http:\/\/www.yahoo.com /  # => 読みにくく感じるかもしれない
+    #   => 読みにくく感じるかもしれない
+    qw/ http:\/\/www.perl-entrance.org http:\/\/www.yahoo.com /
     # 2. デリミタを変える
-    qw! http://www.perl-entrance.org http://www.yahoo.com !      # => ちょっと読みやすいかもしれない
+    #   => ちょっと読みやすいかもしれない
+    qw! http://www.perl-entrance.org http://www.yahoo.com !
 
 ## 便利な関数
 - ここから, 配列やリストを便利に扱うための, 以下の関数について説明をしていきます.
