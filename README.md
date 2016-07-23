@@ -2,7 +2,7 @@
 
 ## 資料へのリンク
 
-- 第1回（[第一部](1st/part1.md)、[第二部](1st/part3.md)、[第三部](1st/part3.md)）
+- 第1回（[第一部](1st/part1.md)、[第二部](1st/part2.md)、[第三部](1st/part3.md)）
 - [第2回](2nd/slide.md)
 
 ## 資料の見方
