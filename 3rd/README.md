@@ -2,7 +2,7 @@
 
 ## 資料の見方
 
-`slide.md`が資料本体です。
+`slide.md`が資料です。
 
 資料は Markdown 記法で書かれていますので、テキストエディタだけでなく、Markdownエディタなどでもご覧いただけます。
 
@@ -18,12 +18,6 @@
 - [一瞬でクールなスライドがつくれる「App::revealup」をリリースしました - ゆーすけべー日記](http://yusuke.be/post/88914879289)
 - [YAPC::Asiaでも「ちらほら」使われた「App::revealup」の進捗](http://yusuke.be/post/96568593109)
 
-## 編集方法
-
-`src`ディレクトリのなかに各章ごとのファイルがありますので、そちらを編集してください。
-
-編集後には`build.pl`を実行して`slide.md`を生成してください。（Path::Tinyが必要です）
-
-    $ perl build.pl
+***
 
 Perl入学式公式サイト： <http://www.perl-entrance.org>
