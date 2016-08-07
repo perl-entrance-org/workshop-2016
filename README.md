@@ -2,15 +2,14 @@
 
 ## 資料へのリンク
 
-- 第1回（[第一部](1st/part1.md)、[第二部](1st/part2.md)、[第三部](1st/part3.md)）
+- 第1回（[第1部](1st/part1.md)、[第2部](1st/part2.md)、[第3部](1st/part3.md)）
 - [第2回](2nd/slide.md)
+- [第3回](3rd/slide.md)
 
 ## 資料の見方
 
 資料は Markdown 記法で書かれていますので、テキストエディタだけでなく、Markdownエディタなどでもご覧いただけます。
 
-## 編集方法
-
-`src`ディレクトリのなかに各章ごとのファイルがありますので、そちらを編集してください。
+***
 
 Perl入学式公式サイト： <http://www.perl-entrance.org>
