@@ -28,8 +28,8 @@ ___
 ---
 # リファレンスの復習
 
-- [前回の復習問題](https://github.com/perl-entrance-org/workshop-2015-03/blob/master/practice.md)の｢score.pl｣の一部の問題を解きながら, リファレンスを復習してみましょう.
-- [こちら](https://github.com/perl-entrance-org/workshop-2015-03/blob/master/code/score.pl)にサンプルデータがあります.
+- [前回の復習問題](https://github.com/perl-entrance-org/workshop-2016/blob/master/3rd/practice.md)の｢score.pl｣の一部の問題を解きながら, リファレンスを復習してみましょう.
+- [こちら](https://github.com/perl-entrance-org/workshop-2016/blob/master/3rd/code/score.pl)にサンプルデータがあります.
 
 ---
 # サブルーチン
@@ -692,7 +692,7 @@ ___
 - 文字列が`0`の場合, ループを抜ける(`last`を使って...).
 - 文字列が`perl`ないし`Perl`を含む場合, ｢Find Perl!｣と表示する.
 - 文字列に大文字小文字問わず, `python`の文字列が含まれる場合, ｢Find Python!｣と表示する.
-- 文字列に`perl`ないし`ruby`ないし`python`が含まれる場合, ｢Love Programming!｣と表示する. 
+- 文字列に`perl`ないし`ruby`ないし`python`が含まれる場合, ｢Love Programming!｣と表示する.
 
 ___
 # 練習問題 (3/3)
