@@ -1,0 +1,54 @@
+#!/usr/bin/env perl
+use Mojolicious::Lite;
+
+my @entries = (); # 空の配列を宣言
+get '/' => sub {
+  my $self = shift;
+  $self->stash(entries => \@entries); # 配列のリファレンスをテンプレートに渡す
+  $self->render(template => 'index');
+};
+
+post '/post' => sub {
+  my $self = shift;
+  my $name = $self->param('name');
+  my $mail = $self->param('mail');
+  my $body = $self->param('body');
+
+  my $entry = {
+      name => $name,
+      mail => $mail,
+      body => $body,
+  };
+
+  if ($mail eq 'age') {
+      unshift @entries, $entry;
+  } else {
+      push @entries, $entry; # 配列に格納
+  }
+  $self->redirect_to('/');
+};
+
+app->start;
+__DATA__
+
+@@ index.html.ep
+% layout 'default';
+% title '入力フォーム';
+%= form_for '/post' => method => 'POST' => begin
+  name :<%= text_field 'name'%>
+  mail :<%= text_field 'mail'%>
+  body :<%= text_field 'body'%>
+  <%= submit_button '投稿する'%>
+% end
+% for my $entry (@{$entries}) {
+    <p><%= $entry->{name} %></p>
+    <p><%= $entry->{mail} %></p>
+    <p><%= $entry->{body} %></p>
+% }
+
+@@ layouts/default.html.ep
+<!DOCTYPE html>
+<html>
+  <head><title><%= title %></title></head>
+  <body><%= content %></body>
+</html>
