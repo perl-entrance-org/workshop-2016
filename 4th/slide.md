@@ -301,13 +301,13 @@ ___
 ___
 ## 中身の書き換え
 
-    my %hash = ( papix => 'dame' );
-    print $hash{papix}; # => dame
+    my %hash = ( alice => 'fool' );
+    print $hash{alice}; # => fool
     fix(\%hash);
-    print $hash{papix}; # => perfect
+    print $hash{alice}; # => clever
     sub fix {
         my $hash = shift;
-        $hash->{papix} = 'perfect';
+        $hash->{alice} = 'clever';
     }
 
 - サブルーチンに渡される配列･ハッシュのリファレンスは, サブルーチンの外側にある配列･ハッシュの実体(この場合, `%hash`)を指しているので, サブルーチンの中でデータ構造を書き換えると, 外側の実体にも影響が出てしまいます.
@@ -497,11 +497,11 @@ ___
 ___
 ## 練習問題
     my $words_ref = [
-        'papix loves meat!',
-        'boolfool loves sushi!',
+        'alice loves meat!',
+        'bob loves sushi!',
     ];
 
-- このような配列のリファレンスを受け取り, リファレンスに格納された文字列について, ｢loves｣の後に記述されている好きな食べ物の単語を正規表現で取得し, ｢papix -> meat｣, ｢boolfool -> sushi｣のように表示するサブルーチン, `love_food`を書いてみよう.
+- このような配列のリファレンスを受け取り, リファレンスに格納された文字列について, ｢loves｣の後に記述されている好きな食べ物の単語を正規表現で取得し, ｢alice -> meat｣, ｢bob -> sushi｣のように表示するサブルーチン, `love_food`を書いてみよう.
 - このコードは, `love_food.pl`という名前で保存するようにしましょう.
 
 ---
