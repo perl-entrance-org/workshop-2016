@@ -13,7 +13,7 @@ use constant DEBUG => $ENV{DEBUG};
 GetOptions(
     \my %opt,
     "port|p=i",
-    "open|o",
+    "silent|s",
     "theme|t=s",
     "print-pdf|p",
 );
@@ -54,13 +54,15 @@ my $pid = fork // die "fork error" or do {
 # child が revealup とそれによって起こされる plackup をし終わるまでの待ちの塩梅
 sleep 1;
 
-# Mac の open コマンドは非同期ですぐ抜ける
-my $url = "http://localhost:$port$uri_abs";
-print "open URL $url by default browser\n";
-system "open", $url;
+if ( !$opt{silent} ) {
+    my $url = "http://localhost:$port$uri_abs";
+    print "open URL $url by default browser\n";
+    system "open", $url;
+    # Mac の open コマンドは非同期ですぐ抜けるのでこの system では止まらない
+}
 
 # child の system "revealup" が終了して child が exit するまで待つ
-print "child (pid=$pid) is exist. wait\n" if kill 0 => $pid;
+print "child (pid=$pid) is exist. wait.\n" if kill 0 => $pid;
 wait;
 
 # 親を ^C (SIGINT) などで終了させれば child も刈り取られる
@@ -95,9 +97,13 @@ C<revealup> の起動コマンドを忘れがちなこともあり、それの�
 
 ポート番号指定です。デフォルトは revealup のもの。たぶん 5000 番です。
 
-=head2 --open | -o
+=head2 --silent | -s
 
-そのままブラウザで開きます。revealup をバックグラウンドで開き、このスクリプトはそれの終了を待ちます。
+このスクリプトのデフォルトでは revealup の起動に従って open コマンドでブラウザで開きますが、
+--silent オプションを付けると、ブラウザを開かないようにします。
+
+このオプションが無い場合は revealup をバックグラウンドで開き、さらに open で指定通りにブラウザを開き、
+このスクリプトはそれの終了を待ちます。
 
 =head2 --theme | -t
 
