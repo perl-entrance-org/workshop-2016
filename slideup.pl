@@ -79,13 +79,13 @@ slideup.pl - Perl入学式のスライドサーバを起動する
 
 =head1 SYNOPSIS
 
-  $ perl slideup.pl [--port=5000] [--theme=original] [--open] [--print-pdf] path/to/slide.md
+  $ perl slideup.pl [--port=5000] [--theme=original] [--silent] [--print-pdf] path/to/slide.md
 
-  普通に起動したい場合（デフォルトで開きます）
-  $ perl slideup.pl --open path/to/slide.md
+  普通に起動したい場合（デフォルトでブラウザも開きます）
+  $ perl slideup.pl path/to/slide.md
 
   PDF作成モードで開きたい場合
-  $ perl slideup.pl --open --print-pdf path/to/slide.md
+  $ perl slideup.pl --print-pdf path/to/slide.md
 
 =head1 DESCRIPTIONS
 
@@ -114,6 +114,16 @@ C<revealup> の起動コマンドを忘れがちなこともあり、それの�
 
 PDF で印刷できるデザインにします。指定した Markdown ファイルと同じディレクトリに original.css が存在する必要があります。
 original.css 以外の CSS を指定する場合には、上記 --theme オプションで上書きできます。
+
+=head1 TODO
+
+=over
+
+=item *
+
+Mac の open コマンドを使っているので、他の OS プラットフォームへの対応。
+
+=back
 
 =head1 AUTHOR
 
