@@ -408,7 +408,7 @@ ___
 delete 関数は指定したハッシュの key と、それに対応する value を削除します。
 
 ___
-## exsits
+## exists
     my %hash = (
         name        => 'Alice',
         job         => 'Programmer',
@@ -416,7 +416,7 @@ ___
     );
 
     if (exists $hash{job})  { print "exists" } #=> exists
-    if (exists $hash{team}) { print "exists" } #=> 
+    if (exists $hash{team}) { print "exists" } #=>
 
 exists 関数は指定したハッシュの key が存在するか確認します。
 
@@ -647,4 +647,3 @@ ___
 - <https://github.com/perl-entrance-org/workshop-2016/blob/master/3rd/src/practice.md>
   - 今回の内容を復習することができる問題集です。
   - 不明点があれば、気軽にサポーターに質問してください。
-
