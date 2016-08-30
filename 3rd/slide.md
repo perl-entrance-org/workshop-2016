@@ -46,7 +46,7 @@ ___
 ___
 # 復習問題
 
-[practice.md](https://github.com/perl-entrance-org/workshop-2016/blob/master/2nd/src/practice.md) の `sum.pl` と `even_or_odd.pl` をやってみましょう。
+[practice.md](https://github.com/perl-entrance-org/workshop-2016/blob/master/2nd/practice.md) の `sum.pl` と `even_or_odd.pl` をやってみましょう。
 
 ---
 # 配列 (関数)
