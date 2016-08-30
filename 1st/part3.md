@@ -68,7 +68,7 @@ ___
 ___
 ## Perlって何?
 - 1987年, Larry Wall(右写真)が開発したプログラミング言語です.
-<img src="src/public/image/larry.jpg" align='right'>
+<img src="image/larry.jpg" align='right'>
     - Ruby, Python, PHPと並ぶLL言語(Lightweight Language)と呼ばれるカテゴリのプログラミング言語の1つです.
         - 後のRubyやPHPに影響を与えました.
     - C言語やsed(せど), awk(おーく)の影響を受けた動的型付け言語です.
