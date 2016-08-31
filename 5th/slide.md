@@ -27,19 +27,36 @@ ___
 # Mojolicious の準備
 
 ___
+## モジュールのインストールについて
+  第1回目で Term::ANSIColor モジュールを使いましたが、それは全ての Perl に最初から入っているモジュールでした。
+  これから使っていく Mojolicious は外部から追加しなくてはならないモジュールです。
+  モジュールのインストール方法は様々な方法がありますが、この講義では local::lib と cpanm を使って入れることにします。
+
+___
+## local::lib と cpanm (cpan minus)
+  local::lib は、モジュールを自分のホームディレクトリで管理することができるモジュールです。
+  local::lib を使うことで、システム全体への影響を抑えつつ自分の好きなモジュールを使うことができます。
+  cpanm (cpan minus) とは CPAN からモジュールをダウンロードしてインストールするプログラムです。
+
+___
 ## Mojolicious のインストール
 
-```
-$ cpanm -n Mojolicious
-```
-
-- エラーになる場合は以下のコマンドを試してみてください。
+以下の4つのコマンドを一つずつ打っていきます。
 
 ```
-$ curl -L https://cpanmin.us | perl - -n Mojolicious
+$ curl -L4 cpanmin.us | sudo perl - -n local::lib
+$ perl -Mlocal::lib | tee -a ~/.bash_profile
+$ exec $SHELL -l
+$ curl -L4 cpanmin.us | perl - --local-lib=~/perl5 -n Mojolicious
 ```
+___
+## インストールに成功したかのチェック
 
-- ``https://``がエラーになる場合は``http://``でも問題ありません。
+以下のコマンドで Mojolicious のバージョンが出力されればインストール成功です。
+
+```
+$ perl -MMojolicious -e 'print "$Mojolicious::VERSION\n"'
+```
 
 ___
 ## Mojolicious とは？
