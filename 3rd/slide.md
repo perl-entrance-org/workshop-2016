@@ -46,7 +46,7 @@ ___
 ___
 # 復習問題
 
-[practice.md](https://github.com/perl-entrance-org/workshop-2016/blob/master/2nd/src/practice.md) の `sum.pl` と `even_or_odd.pl` をやってみましょう。
+[practice.md](https://github.com/perl-entrance-org/workshop-2016/blob/master/2nd/practice.md) の `sum.pl` と `even_or_odd.pl` をやってみましょう。
 
 ---
 # 配列 (関数)
@@ -635,15 +635,15 @@ my $alice = {
 - `perl`, `ruby` などの言語の合計値を、key `sum` の value として、各リファレンスに追加するコードを score.pl の下方に追記してください。
     - コードを書けたら、`Data::Dumper` で出力しましょう。
 - ヒントや解答例は以下を参照してください。  
-[https://github.com/perl-entrance-org/workshop-2016/blob/master/3rd/src/practice.md#2-scorepl](https://github.com/perl-entrance-org/workshop-2016/blob/master/3rd/src/practice.md#2-scorepl)
+[https://github.com/perl-entrance-org/workshop-2016/blob/master/3rd/practice.md#2-scorepl](https://github.com/perl-entrance-org/workshop-2016/blob/master/3rd/src/practice.md#2-scorepl)
 
 ___
 ## 練習問題
-[practice.md](https://github.com/perl-entrance-org/workshop-2016/blob/master/3rd/src/practice.md#2-2-言語ごとの平均) には練習問題の続きがあるので、チャレンジしてみてください。
+[practice.md](https://github.com/perl-entrance-org/workshop-2016/blob/master/3rd/practice.md#2-2-言語ごとの平均) には練習問題の続きがあるので、チャレンジしてみてください。
 
 ---
 ## 復習問題
 
-- <https://github.com/perl-entrance-org/workshop-2016/blob/master/3rd/src/practice.md>
+- <https://github.com/perl-entrance-org/workshop-2016/blob/master/3rd/practice.md>
   - 今回の内容を復習することができる問題集です。
   - 不明点があれば、気軽にサポーターに質問してください。

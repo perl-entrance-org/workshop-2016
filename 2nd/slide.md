@@ -505,7 +505,7 @@ ___
 ___
 ## 復習問題
 
-- <https://github.com/perl-entrance-org/workshop-2016/blob/master/2nd/src/practice.md>
+- <https://github.com/perl-entrance-org/workshop-2016/blob/master/2nd/practice.md>
   - 今回の内容を復習することができる問題集です
   - ご不明な点があれば, 気軽にスタッフまでお尋ねください
 
