@@ -33,10 +33,13 @@ ___
   モジュールのインストール方法は様々な方法がありますが、この講義では local::lib と cpanm を使って入れることにします。
 
 ___
-## local::lib と cpanm (cpan minus)
+##  local::lib と cpanm (cpan minus)
   local::lib は、モジュールを自分のホームディレクトリで管理することができるモジュールです。
   local::lib を使うことで、システム全体への影響を抑えつつ自分の好きなモジュールを使うことができます。
+
   cpanm (cpan minus) とは CPAN からモジュールをダウンロードしてインストールするプログラムです。
+  通常は perl が入っているディレクトリにモジュールをインストールしますが、`-l` オプションを指定することで任意のディレクトリにインストールすることが可能です。
+  この講義では、自分のホームディレクトリ配下にモジュールをインストールします。
 
 ___
 ## Mojolicious のインストール
@@ -44,10 +47,12 @@ ___
 以下の4つのコマンドを一つずつ打っていきます。
 
 ```
-$ curl -L4 cpanmin.us | sudo perl - -n local::lib
-$ perl -Mlocal::lib | tee -a ~/.bash_profile
+$ curl -L cpanmin.us -o cpanm
+$ chmod +x cpanm
+$ ./cpanm -l ~/extlib local::lib
+$ perl -I ~/extlib/lib/perl5 -Mlocal::lib=~/extlib | tee -a ~/.bash_profile
 $ exec $SHELL -l
-$ curl -L4 cpanmin.us | perl - --local-lib=~/perl5 -n Mojolicious
+$ ./cpanm -l ~/extlib -n Mojolicious
 ```
 ___
 ## インストールに成功したかのチェック
