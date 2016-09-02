@@ -52,7 +52,7 @@ $ chmod +x cpanm
 $ ./cpanm -l ~/extlib local::lib
 $ perl -I ~/extlib/lib/perl5 -Mlocal::lib=~/extlib | tee -a ~/.bash_profile
 $ exec $SHELL -l
-$ ./cpanm -l ~/extlib -n Mojolicious
+$ ./cpanm -n Mojolicious
 ```
 ___
 ## インストールに成功したかのチェック
