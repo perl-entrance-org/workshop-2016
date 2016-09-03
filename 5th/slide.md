@@ -164,8 +164,8 @@ ___
 ## コード解説（Line 7 - 10）
 ```
 get '/' => sub {
-  my $self = shift;
-  $self->render(template => 'index');
+  my $c = shift;
+  $c->render(template => 'index');
 };
 ```
 
@@ -186,8 +186,8 @@ get '/' => sub { ... };
 ___
 ## コード解説（Line 7 - 10）
 ```
-my $self = shift;
-$self->render(template => 'index');
+my $c = shift;
+$c->render(template => 'index');
 ```
 
 - コードリファレンスの最初の行は、フレームワークのコントローラーを受け取っています。
@@ -270,13 +270,13 @@ ___
 ___
 ## 変数を渡す
     get '/' => sub {
-      my $self = shift;
-      $self->stash(title => 'Hello');
-      $self->render('index');
+      my $c = shift;
+      $c->stash(title => 'Hello');
+      $c->render('index');
     };
     % title 'Welcome'; # => 削除する
 
-- `$self->stash` で, テンプレート内の変数に変数を渡せる
+- `$c->stash` で, テンプレート内の変数に変数を渡せる
 
 ___
 ## 練習問題
@@ -389,24 +389,24 @@ ___
 ___
 ## GET
     get '/' => sub {
-      my $self = shift;
-      my $entry = $self->param('body'); # 追加
-      $self->render('index');
+      my $c = shift;
+      my $entry = $c->param('body'); # 追加
+      $c->render('index');
     };
 
 - form の情報を取得するために, 上記のように 1 行追加する
-- `$self->param('body')` は フォームから投稿した `body` という名前の値を取得する
+- `$c->param('body')` は フォームから投稿した `body` という名前の値を取得する
 
 ___
 ## GET
     get '/' => sub {
-      my $self = shift;
-      my $entry = $self->param('body');
-      $self->stash(entry => $entry); # 追加
-      $self->render('index');
+      my $c = shift;
+      my $entry = $c->param('body');
+      $c->stash(entry => $entry); # 追加
+      $c->render('index');
     };
 
-- 取得した情報をテンプレートに渡すため, `$self->stash(entry => $entry)` を挿入する
+- 取得した情報をテンプレートに渡すため, `$c->stash(entry => $entry)` を挿入する
 - `entry` に変数 `$entry` を渡したので, テンプレートで `$entry` が使用可能になる
 
 ___
@@ -450,15 +450,15 @@ ___
 ___
 ## POST
     get '/' => sub {
-      my $self = shift;
-      $self->render('index');
+      my $c = shift;
+      $c->render('index');
     };
 
     post '/post' => sub {
-      my $self = shift;
-      my $entry = $self->param('body');
-      $self->stash(entry => $entry);
-      $self->render('post');
+      my $c = shift;
+      my $entry = $c->param('body');
+      $c->stash(entry => $entry);
+      $c->render('post');
     };
 
 - perl コードも変更しよう
@@ -497,17 +497,17 @@ ___
 ## 記事を蓄える
     my @entries = (); # 空の配列を宣言
     get '/' => sub {
-      my $self = shift;
-      $self->stash(entries => \@entries); # 配列のリファレンスをテンプレートに渡す
-      $self->render('index');
+      my $c = shift;
+      $c->stash(entries => \@entries); # 配列のリファレンスをテンプレートに渡す
+      $c->render('index');
     };
 
     post '/post' => sub {
-      my $self = shift;
-      my $entry = $self->param('body');
+      my $c = shift;
+      my $entry = $c->param('body');
       push @entries, $entry; # 配列に格納
-      $self->stash(entry => $entry);
-      $self->render('post');
+      $c->stash(entry => $entry);
+      $c->render('post');
     };
 
 ___
@@ -524,11 +524,11 @@ ___
 ___
 ## redirect\_to
     post '/post' => sub {
-      my $self = shift;
-      my $entry = $self->param('body');
+      my $c = shift;
+      my $entry = $c->param('body');
       push @entries, $entry;
                                # '/'へ移る為、'post'へのstash は不要となるので削除
-      $self->redirect_to('/'); # 追加
+      $c->redirect_to('/'); # 追加
     };
 
 - `redirect_to` を利用して, `/`へのページ遷移を追加する
