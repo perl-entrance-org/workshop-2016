@@ -422,10 +422,13 @@ ___
 
 ___
 ## POST
-    @@ post.html.ep # 新しいテンプレートを用意する
+    @@ post.html.ep
+    % # 新しいテンプレートを用意する
     % layout 'default';
-    % title '出力'; # タイトルを変更
-    %= form_for '/post' => method => 'POST' => begin # 投稿先などを変更
+    % # タイトルを変更
+    % title '出力';
+    % # 投稿先などを変更
+    %= form_for '/post' => method => 'POST' => begin
       %= text_field 'body'
       %= submit_button '投稿する'
     % end
@@ -438,8 +441,10 @@ ___
 ## POST
     @@ index.html.ep
     % layout 'default';
-    % title '入力フォーム'; # タイトルを変更
-    %= form_for '/post' => method => 'POST' => begin # 投稿先などを変更
+    % # タイトルを変更
+    % title '入力フォーム';
+    % # 投稿先などを変更
+    %= form_for '/post' => method => 'POST' => begin
       %= text_field 'body'
       %= submit_button '投稿する'
     % end
