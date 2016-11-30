@@ -494,6 +494,55 @@ ___
 ## 応用問題
 - `sort.pl`をもとにして, `@array`に文字列を3個入力する際, `<STDIN>`を3回書くのではなく, for文を使ってシンプルに書いてみよう
 
+___
+## qw ショートカット
+    my @array = qw( Alice Bob Chris );
+        #=> ('Alice', 'Bob', 'Chris')
+
+- これまでのリストの書き方 `('this', 'is', 'list', 1, 2, 3)` と異なり、クォート記号が不要です。
+- この記法では空白文字 (スペース、タブ、改行など) が無視され、残ったものがリストの要素になります。
+
+___
+## qw ショートカット
+- なので、こういう書き方もできます。
+
+    my @arary = qw(
+        Alice
+        Bob
+    );
+
+___
+## qw ショートカット
+
+    qw! Alice Bob !
+    qw# Alice Bob #
+    qw/ Alice Bob /
+
+デリミタ (区切り文字) には任意の記号文字を使えます。  
+これらは前述の
+
+    qw( Alice Bob )
+
+と等しくなります。
+
+___
+## qw ショートカット
+このような問題に遭遇したとき、
+
+    qw/http://www.perl-entrance.org http://www.yahoo.com/
+    # エラーになってしまう！
+    # デリミタがスラッシュ (/) で
+    # 要素にもスラッシュが含まれているため
+
+解決法は2つ。
+
+    # 1. 要素内のスラッシュをバックスラッシュでエスケープする
+    #   => 読みにくく感じるかもしれない
+    qw/ http:\/\/www.perl-entrance.org http:\/\/www.yahoo.com /
+    # 2. デリミタを変える
+    #   => ちょっと読みやすいかもしれない
+    qw! http://www.perl-entrance.org http://www.yahoo.com !
+
 ---
 # 最終問題(fizzbuzz.pl)
 - `FizzBuzz`問題にチャレンジ!!
