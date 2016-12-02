@@ -200,119 +200,141 @@ ___
 # ハッシュ
 
 ___
-## ハッシュとはなんでしょう？
+## ハッシュとは
 
-- Perl のデータ構造のひとつで、「連想配列」とも呼ばれます。
-- 配列と同じく、任意個の値の格納・取り出しができます。
-- しかし配列とは異なり、「数値」ではなく「名前」を使って、格納した個々の「値」を指定します。
-    - 要素を指定するための名前を "key"、そして key によって指定された要素を "value" と呼びます。
+- ハッシュはPerlのデータ構造の1つで、「連想配列」とも呼ばれます。
+- 配列と同じく、値の格納・取り出しができます。
+- しかし配列とは異なり、「数値」ではなく「名前」を使って、格納する「値」を指定します。
+    - 要素を指定するための「名前」を "key"、key によって指定された「値」を "value" と呼びます。
 
 ___
-## たとえば
+## ハッシュの基本
+
+以下の要素を持つ人物をハッシュで表現してみましょう。
 
 - 名前: Alice
 - 職業: Programmer
 - 所属: PerlEntrance
 
-という要素を持つ人を表現してみましょう。
-
 ___
-## 配列と比較してみましょう
-配列を使って表現すると、こんな感じになるのではないでしょうか。
+## ハッシュの基本
+もしこれを配列で表現するなら、以下のようになるでしょう。
 
     my @user = ('Alice', 'Programmer', 'PerlEntrance');
     print $user[0]; # 最初の要素が表示される  => "Alice"
     print $user[1]; # 2番目の要素が表示される => "Programmer"
     print $user[2]; # 3番目の要素が表示される => "PerlEntrance"
 
-- しかしこの方法を使う場合は、`@user` の添字 `0` が名前、`1` が職業……といった条件を覚えておく必要があります。
+- しかしこの場合は、添字 `0` が名前、`1` が職業、といった条件を覚えておく必要があります。
 - これは非常に面倒ですね。
 
 ___
-## これがハッシュだと...
+## ハッシュの基本
+同じ内容をハッシュで表現すると、このようになります。
 
     my %user = (
         name        => 'Alice',
         job         => 'Programmer',
         affiliation => 'PerlEntrance'
     );
-    print $user{name}; # name が表示される => "Alice"
-    print $user{job};  # job が表示される => "Programmer"
-    print $user{affiliation};
-        # affiliation が表示される => "PerlEntrance"
+    print $user{name}; # nameが表示される => "Alice"
+    print $user{job};  # jobが表示される => "Programmer"
+    print $user{affiliation}; # affiliationが表示される => "PerlEntrance"
 
-なんだかわかりやすい感じがします！
-
-___
-## ハッシュの代入と出力
-- ハッシュは % を使って定義します。
-- ハッシュにアクセスするときは、添字として波括弧 `{}` を使います。
-- 1つのハッシュ内に、文字列や数値が混在しても構いません。
-
-以下の例を見てみましょう。
-
-    my %hash;              # ハッシュを定義
-    $hash{name} = 'Alice';
-    # "name" という key に "Alice" という value を代入
-    $hash{age}  = 16;
-    # "age" という key に "16" という value を代入
-    print "$hash{name}\n"; #=> "Alice"
-    print "$hash{age}\n";  #=> 16
+- 添字（key）から値（value）を連想できるため、配列を使うよりわかりやすいですね。
 
 ___
-## ハッシュの代入と出力
-ハッシュは配列の一種なので、こういう書き方もできます。
+## ハッシュの基本
+ハッシュには他にも利点があります。
 
-    my %hash = ('name', 'Alice', 'age', 16);
-    print "$hash{name}\n"; #=> "Alice"
-    print "$hash{age}\n";  #=> "16"
+以下のような配列があったとき、
+
+    my @user = ('Name', 'Job', 'Affiliation');
+
+もし突然、要素の順番が入れ替わってしまったらどうなるでしょう？  
+
+    my @user = ('Affiliation', 'Job', 'Name');
+
+添字と値の関係が変わってしまうため、影響するコードを書き換えなくてはいけません。  
+しかしハッシュを使えば、値は添字の数値（順番）ではなく、名前（key）で対応づけられているので、そういった問題が起こりません。
 
 ___
-## ハッシュの代入と出力
-しかし実際には、こういう風に書くのが便利です。
+## ハッシュを使ってみよう
+では、ハッシュを作ってみましょう。
 
     my %hash = (
         name => 'Alice',
         age  => 16
     );
-    # `=>` で key と value の関係を書ける
-    # 左側の値は文字列として解釈されるのでクォートの必要がない
 
-    print "$hash{name}\n"; #=> "Alice"
-    print "$hash{age}\n";  #=> "16"
-
-- `=>` はファットコンマ演算子と呼ばれ、コンマのような役割を果たします。
-- ファットコンマ演算子を使うと、key と value の関係 (`=>`の左がkey, 右がvalue) が見やすくなります。
+- ハッシュは % を使って定義します。
+- `=>` はファットコンマ演算子と呼ばれ、コンマと同等の役割を果たします。
+- `=>` の左にkey（名前）、右にvalue（値）を書くことで、関係性が明らかになります。
+- keyは文字列として解釈されるので、クォートの必要はありません。
+- 1つのハッシュ内に文字列や数値が混在しても構いません。
 
 ___
-## 結局ハッシュの何が便利なのか？
-    my @user = ('Name', 'Job', 'Affiliation');
+## ハッシュを使ってみよう
+ハッシュの要素にアクセスし、取り出してみましょう。  
+ハッシュにアクセスするときは、添字として波括弧 `{}` を使います。  
+`{}`にkeyを入れることで、対応するvalue（値）を取り出せます。
 
-これがある日突然、
+    my %hash = (
+        name => 'Alice',
+        age  => 16,
+    );
+    print $hash{name}; #=> 'Alice'
+    print $hash{age}; #=> 16
 
-    my @user = ('Affiliation', 'Job', 'Name');
+___
+## ハッシュを使ってみよう
+ハッシュに新たな要素を代入してみましょう。  
+取り出すときと同様に、`{key}` を使います。
 
-こんな風に順序が入れ替わったらどうしましょう？  
-今まで動いていたコードを書き換えなくてはなりません。  
-しかしハッシュだと、順序ではなく key で対応づけられているので、そういった問題が起こりません。
+    $hash{job} = 'Programmer'; # 新たな値'Programmer'をkey'job'で代入
+
+これで、ハッシュの中身は以下のようになりました。
+
+    my %hash = (
+        name => 'Alice',
+        age  => 16,
+        job  => 'Programmer',
+    );
+
+取り出してみましょう。
+
+    print $hash{job}; #=> 'Programmer'
+
+※ハッシュの中身を一度に全部見たい場合は、`Data::Dumper`モジュールを使います。これについては後で解説します。
+
+___
+## ハッシュを使ってみよう
+じつはハッシュは配列の一種なので、このように書くこともできます。
+
+    my %hash = ('name', 'Alice', 'age', 16);
+    print $hash{name}; #=> "Alice"
+    print $hash{age};  #=> "16"
+
+実際にこのように書くことは少ないですが、配列の一種であることは覚えておくとよいでしょう。
 
 ___
 ## 練習問題
-- 次のような挙動をする `hash_profile.pl` を作成しましょう。
-1. 自分の名前 (name)、年齢 (age)、好きな食べ物 (food) を key にしたハッシュを作ってみましょう。
-2. key である `name`, `age`, `food` を使って、それぞれの value を出力してみましょう。
+- 次の処理をする `hash_profile.pl` を作りましょう。
+    1. 自分の名前 (name)、年齢 (age)、好きな食べ物 (food) を key にしたハッシュ %my_profile を作ってください。
+    2. key である `name`, `age`, `food` を使って、それぞれの value を出力してください。
 
 ---
-## ハッシュの便利関数たち
-ここでは、ハッシュを便利に扱うための関数について説明します。
+## ハッシュの便利な関数たち
+ハッシュを便利に扱うための関数について説明します。
 
-    - keys
-    - values
-    - delete
-    - exists
+- keys
+- values
+- delete
+- exists
 
 ___
 ## keys
+
     my %hash = (
         name        => 'Alice',
         job         => 'Programmer',
@@ -321,14 +343,15 @@ ___
     my @keys = keys %hash;
     print "@keys\n";    #=> "name job affiliation"
 
-keys 関数は、ハッシュの key を配列にして返します。
+keys関数は、ハッシュの key を配列にして返します。
 
-- ただし、この時 key は順不同で返ります。
+- ただし、この時 key は順不同です。（※とても重要）
 - つまり、ハッシュに書かれた順番で返ってくるとは限りません。
-- よって、同じ順番で受け取りたい場合は、`sort` を使って並び替えましょう。
+- よって、同じ順番で受け取りたい場合は、`sort`関数を使って並び替えましょう。
 
 ___
 ## values
+
     my %hash = (
         name        => 'Alice',
         job         => 'Programmer',
@@ -337,12 +360,13 @@ ___
     my @values = values %hash;
     print "@values\n"; #=> "Alice Programmer PerlEntrance"
 
-values 関数は、ハッシュの value を配列にして返します。
+values関数は、ハッシュの value を配列にして返します。
 
 - value も順不同で返ります。
 
 ___
 ## delete
+
     my %hash = (
         name        => 'Alice',
         job         => 'Programmer',
@@ -353,30 +377,29 @@ ___
     # この時、%hash は以下のようになっています
     # %hash = ( name => 'Alice', job => 'Programmer' );
 
-delete 関数は指定したハッシュの key と、それに対応する value を削除します。
+delete関数は、指定したハッシュの key と、それに対応する value を削除します。
 
 ___
 ## exists
+
     my %hash = (
         name        => 'Alice',
         job         => 'Programmer',
         affiliation => 'PerlEntrance'
     );
+    if (exists $hash{job})  { print "exists" } #=> 'exists'
+    if (exists $hash{team}) { print "exists" } # 何も出てこない
 
-    if (exists $hash{job})  { print "exists" } #=> exists
-    if (exists $hash{team}) { print "exists" } #=>
-
-exists 関数は指定したハッシュの key が存在するか確認します。
+exists関数は、指定したハッシュの key が存在するか確認します。
 
 ___
 ## 練習問題
 
-- 次の処理を実行する `hash_func.pl` を作成しましょう。
-    1. `hash_profile.pl` で作ったハッシュを用意し、そのハッシュの key の一覧を出力してみましょう。
-    2. `exists` で年齢の要素が存在するか確認してみましょう。
-    3. ハッシュから年齢(age)の要素を取り除いてみましょう。
-    4. 年齢(age)の要素を削除した後、きちんと削除できたか確認しましょう。  
-       key の一覧を表示した後、`exists` で年齢の要素が存在しているか確認し、削除されている場合は "Age is not exist." と表示するようにしてみましょう。
+- 次の処理をする `hash_func.pl` を作りましょう。
+    1. keys関数を使って、`hash_profile.pl` で作ったハッシュのkeyをすべて出力してください。
+    2. delete関数を使って、1で使ったハッシュから年齢(age)の要素を削除してください。
+    3. exists関数を使って、年齢の要素が存在するか確認してください。削除されている場合は "Age is not exist." と表示するようにしてみましょう。
+
 
 ---
 # リファレンス
