@@ -121,15 +121,49 @@ ___
 - 次の処理をする `array_pop_shift.pl` を作りましょう。
     1. ('Alice', 'Bob', 'Chris') という配列を作ってください。
     2. 1の配列から 'Chris' を取り出し、出力してください。
-    3. 2の配列から 'Alice' を取り出し、出力してください。
+    3. 1の配列から 'Alice' を取り出し、出力してください。
 
 ___
 ## 練習問題 (2/2)
 - 次の処理をする `array_push_unshift.pl` を作りましょう。
     1. ('Alice', 'Bob', 'Chris') という配列を作ってください。
     2. 1の配列の末尾に `Diana` を追加し、 ('Alice', 'Bob', 'Chris', 'Diana') という配列を作ってください。
-    3. 2の配列の最初に `Eve` を追加し、 ('Eve', 'Alice', 'Bob', 'Chris', 'Diana') という配列を作ってください。
+    3. 2の処理に続けて、配列の最初に `Eve` を追加し、 ('Eve', 'Alice', 'Bob', 'Chris', 'Diana') という配列を作ってください。
     4. 3の配列をfor文で出力してみましょう。
+
+___
+## reverse
+reverse はリストを逆順に並べ替えて、そのリストを返します。
+
+    my @lang = qw(perl php ruby python java go);
+    my @reversed = reverse @lang;
+    print "@reversed"; #=> go java python ruby php perl
+
+___
+## reverse
+連番を逆順で配列に格納したいときにも便利です。
+
+    my @array = reverse ( 1 .. 5 ); #=> ( 5, 4, 3, 2, 1 )
+
+___
+## sort
+- sort はリストをルール順に並べ替えて、そのリストを返します。
+- `sort`のみ, あるいは`sort { $a cmp $b } @array`と書くと, 「文字列」としてソートします
+
+    my @lang = qw(perl php ruby python java go);
+    my @sorted_lang = sort @lang; #=> go java perl php python ruby
+
+    my @num = ( 5, 200, 40, 3, 1 );
+    my @sorted_num = sort @num; #=> (1, 200, 3, 40, 5)
+
+___
+## sort
+- `sort { $a <=> $b } @array`と書くと, 「数値」としてソートします
+
+    my @array = ( 5, 200, 40, 3, 1 );
+    my @sorted = sort {$a <=> $b} @array; #=> (1, 3, 5, 40, 200)
+
+- 変数`$a`と`$b`はsortで使うために予約されているので, **sort以外で使ってはいけません**
 
 ---
 # ハッシュ
