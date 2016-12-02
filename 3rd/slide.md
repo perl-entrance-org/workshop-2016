@@ -127,57 +127,6 @@ ___
     1. ('Alice', 'Bob', 'Chris') という配列を作って出力しましょう。
     2. 1の配列に `Diana` と `Eve` を追加して、 ('Eve', 'Alice', 'Bob', 'Chris', 'Diana') という配列を作って出力しましょう。
 
----
-## qw ショートカット
-    my @array = qw( Alice Bob Chris );
-        #=> ('Alice', 'Bob', 'Chris')
-
-- これまでのリストの書き方 `('this', 'is', 'list', 1, 2, 3)` と異なり、クォート記号が不要です。
-- この記法では空白文字 (スペース、タブ、改行など) が無視され、残ったものがリストの要素になります。
-
-___
-## qw ショートカット
-- なので、こういう書き方もできます。
-
-
-    my @arary = qw(
-        Alice
-        Bob
-    );
-
-___
-## qw ショートカット
-
-    qw! Alice Bob !
-    qw# Alice Bob #
-    qw/ Alice Bob /
-
-デリミタ (区切り文字) には任意の記号文字を使えます。  
-これらは前述の
-
-
-    qw( Alice Bob )
-
-と等しくなります。
-
-___
-## qw ショートカット
-このような問題に遭遇したとき、
-
-    qw/http://www.perl-entrance.org http://www.yahoo.com/
-    # エラーになってしまう！
-    # デリミタがスラッシュ (/) で
-    # 要素にもスラッシュが含まれているため
-
-解決法は2つ。
-
-    # 1. 要素内のスラッシュをバックスラッシュでエスケープする
-    #   => 読みにくく感じるかもしれない
-    qw/ http:\/\/www.perl-entrance.org http:\/\/www.yahoo.com /
-    # 2. デリミタを変える
-    #   => ちょっと読みやすいかもしれない
-    qw! http://www.perl-entrance.org http://www.yahoo.com !
-
 ___
 ## 便利な関数
 ここからは、配列やリストを便利に扱うための関数について説明していきます。
