@@ -7,6 +7,7 @@ use warnings;
 use File::Basename qw(basename dirname);
 use Getopt::Long qw(:config posix_default no_ignore_case bundling auto_help);
 use Pod::Usage qw(pod2usage);
+require App::revealup;
 
 use constant DEBUG => $ENV{DEBUG};
 
@@ -25,7 +26,7 @@ if ( !$markdown_path || !-f $markdown_path ) {
 my $markdown_filename = basename($markdown_path);
 
 my $theme = $opt{theme};
-if ( !$theme && $opt{"print-pdf"} ) {
+if ( !$theme || $opt{"print-pdf"} ) {
     $theme = "original";
 }
 
