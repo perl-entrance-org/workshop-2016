@@ -74,6 +74,8 @@ __END__
 
 =pod
 
+=encoding utf-8
+
 =head1 NAME
 
 slideup.pl - Perl入学式のスライドサーバを起動する
@@ -130,6 +132,6 @@ Mac の open コマンドを使っているので、他の OS プラットフォ
 
 =head1 AUTHOR
 
-OGATA Tetsuji E<lt>tetsuji.ogata@gmail.comE<lt>
+OGATA Tetsuji E<lt>tetsuji.ogata@gmail.comE<gt>
 
 =cut
