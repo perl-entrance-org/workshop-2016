@@ -66,6 +66,10 @@ if ( !$opt{silent} ) {
     } elsif ( $^O =~ m/linux/ ) {
         my $cmd = "";
         my @commands = qw(x-www-browser xdg-open sensible-browser gnome-open);
+        if ( $ENV{BROWSER} ) {
+            unshift( @commands, basename($ENV{BROWSER}) );
+            # 環境変数BROWSERが存在した場合は先頭に追加する
+        }
         for my $command (@commands) {
             open( my $op, "-|" ) or exec "which", $command;
             flock($op, 1);
@@ -81,8 +85,8 @@ if ( !$opt{silent} ) {
             system $cmd, $url;
             # Linuxの場合はブラウザが起動していないとここで止まる
         } else {
-            say "Can not open default browser.";
-            say "Please open the browser and access to $url";
+            print "Can not open default browser.\n";
+            print "Please open the browser and access to ${url}\n";
         }
     } else {
         system "open", $url;
