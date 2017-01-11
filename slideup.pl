@@ -21,6 +21,7 @@ GetOptions(
 
 my $markdown_path = shift;
 if ( !$markdown_path || !-f $markdown_path ) {
+    binmode STDOUT => ":encoding(cp932)" if $^O =~ m/^MSWin/;
     pod2usage(1);
 }
 my $markdown_filename = basename($markdown_path);
@@ -44,6 +45,7 @@ for my $key (qw(transition widhth height)) {
 }
 push @revealup_arg, $markdown_filename;
 
+
 my $pid = fork // die "fork error" or do {
     # in child
     print "fork child (pid=$$)\n";
@@ -58,8 +60,38 @@ sleep 1;
 if ( !$opt{silent} ) {
     my $url = "http://localhost:$port$uri_abs";
     print "open URL $url by default browser\n";
-    system "open", $url;
-    # Mac の open コマンドは非同期ですぐ抜けるのでこの system では止まらない
+    if ( $^O =~ m/^MSWin/ ) {
+        system "start", $url;
+        # Win の start コマンドは非同期ですぐ抜けるのでこの system では止まらない
+    } elsif ( $^O =~ m/linux/ ) {
+        my $cmd = "";
+        my @commands = qw(x-www-browser xdg-open sensible-browser gnome-open);
+        if ( $ENV{BROWSER} ) {
+            unshift( @commands, basename($ENV{BROWSER}) );
+            # 環境変数BROWSERが存在した場合は先頭に追加する
+        }
+        for my $command (@commands) {
+            open( my $op, "-|" ) or exec "which", $command;
+            flock($op, 1);
+            my ($line) = readline $op;
+            close($op);
+            if ( defined $line && $line !~ m/^$/ ) {
+                chomp($line);
+                $cmd = basename($line);
+                last;
+            }
+        }
+        if ( scalar grep { m/^${cmd}$/ } @commands ) {
+            system $cmd, $url;
+            # Linuxの場合はブラウザが起動していないとここで止まる
+        } else {
+            print "Can not open default browser.\n";
+            print "Please open the browser and access to ${url}\n";
+        }
+    } else {
+        system "open", $url;
+        # Mac の open コマンドは非同期ですぐ抜けるのでこの system では止まらない
+    }
 }
 
 # child の system "revealup" が終了して child が exit するまで待つ
@@ -126,7 +158,7 @@ original.css 以外の CSS を指定する場合には、上記 --theme オプ�
 
 =item *
 
-Mac の open コマンドを使っているので、他の OS プラットフォームへの対応。
+Ubuntu16以外のLinuxで動作確認する
 
 =back
 
@@ -135,3 +167,4 @@ Mac の open コマンドを使っているので、他の OS プラットフォ
 OGATA Tetsuji E<lt>tetsuji.ogata@gmail.comE<gt>
 
 =cut
+
