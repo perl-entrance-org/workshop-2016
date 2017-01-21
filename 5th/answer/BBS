@@ -1,0 +1,19 @@
+#!/usr/bin/env perl
+use Mojolicious::Lite;
+
+my @entries = ();
+
+get '/' => sub {
+    my $c = shift;
+    $c->stash(entries => \@entries);
+    $c->render(template => 'index');
+};
+
+post '/post' => sub {
+    my $c     = shift;
+    my $entry = $c->param('body');
+    push @entries, $entry;
+    $c->redirect_to('/');
+};
+
+app->start;

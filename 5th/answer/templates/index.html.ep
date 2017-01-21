@@ -1,0 +1,10 @@
+% layout 'default';
+% title '入力フォーム';
+%= form_for '/post', method => 'POST', begin
+  %= text_field 'body'
+  %= submit_button '投稿する'
+% end
+% for my $entry (@$entries) {
+  <p><%= $entry %></p>
+% }
+
