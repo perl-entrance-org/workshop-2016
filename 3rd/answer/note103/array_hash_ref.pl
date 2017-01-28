@@ -56,13 +56,16 @@ my $sazae_characters = {
 };
 
 # 配列リファレンスの要素を取り出す
-print "Isono family's second daughter is $isono->{daughter}->[1].\n";
+print "磯野家の次女は $isono->{daughter}->[1] です。\n";
 
 # ハッシュリファレンスの要素を取り出す
-print "Fuguta family's son is $fuguta->{son}.\n";
+print "フグ田家の息子は $fuguta->{son} です。\n";
 
 # ハッシュリファレンスの中の配列リファレンスの中のハッシュリファレンスの要素を取り出す
-print "Isono family's eldest daughter's son's friend of boy is $sazae_characters->{daughter}->[0]->{son}->{friend}->{boy}.\n";
+print "磯野家の長女の息子の男の子の友達は $sazae_characters->{daughter}->[0]->{son}->{friend}->{boy} です。\n";
+
+# 2番目以降のアロー（->）は省略可能
+print "磯野家の長女の息子の女の子の友達は $sazae_characters->{daughter}[0]{son}{friend}{girl} です。\n";
 
 # Data::Dumperでリファレンス全体の中身を出力
 use Data::Dumper;
