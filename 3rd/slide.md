@@ -639,7 +639,7 @@ ___
     my %dog = ( name => 'Taro', color => 'brown',);
 
     2. 複雑なデータ構造を扱えるようにするため、
-    ハッシュ%dogから配列リファレンス$dog_refを作る。
+    ハッシュ%dogからハッシュリファレンス$dog_refを作る。
     my $dog_ref = \%dog;
 
     3. ハッシュリファレンス$dog_refを%{$dog_ref}とすることで、
