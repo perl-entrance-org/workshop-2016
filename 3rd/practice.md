@@ -32,7 +32,11 @@ my @array = ($ref1, $ref2, $ref3);
 
 ## 2. score.pl
 
-[score.pl](https://github.com/perl-entrance-org/workshop-2016/blob/master/3rd/code/score.pl) には、下記のようなハッシュリファレンスがいくつか宣言してあります。
+[score.pl](https://github.com/perl-entrance-org/workshop-2016/blob/master/3rd/code/score.pl) には、次のようなハッシュリファレンスがいくつか宣言してあります。
+
+このハッシュリファレンスには, 人物の名前(`name`), 国(`country`), プログラミング言語のスコア(`perl`, `python`, `ruby`, `php`, `binary`)が格納されています:
+
+なお, それぞれのハッシュリファレンスには, 必ず`name`, `country`, `perl`, `python`, `ruby`, `php`, `binary`のキーが含まれています.
 
 ```
 my $alice = {
@@ -48,7 +52,7 @@ my $alice = {
 
 ### 2-1. 点数の合計
 
-各人物の `perl`, `ruby`, `python`……といった言語群の合計値を、key `sum` の value として、それぞれのハッシュリファレンスに追加しましょう。
+それぞれの人物を表したハッシュリファレンスに, そのハッシュリファレンスに含まれるプログラミング言語のスコア(`perl`, `python`, `ruby`, `php`, `binary`)を合計した値を, `sum`というキーで追加してみましょう.
 
 #### ヒント
 
@@ -56,7 +60,7 @@ my $alice = {
 
 #### 出力例
 
-`$alice`の合計値は`300`なので、以下のようになります。（ただし、key の順番がこの通りになるとは限りません）
+例えば, `$alice` のハッシュリファレンスに含まれるプログラミング言語のスコアの合計値は `300` なので、以下のようになります。（ただし、表示したときに key の順番がこの通りになるとは限りません）
 
 ```
 my $alice = {
@@ -73,7 +77,8 @@ my $alice = {
 
 ### 2-2. 言語ごとの平均
 
-`$average`というハッシュリファレンスを新たに作り、各人物の`perl`、`ruby`、`python`の平均値を格納してください。
+`$average`というハッシュリファレンスを新しく作ります.
+このハッシュリファレンスに, 各人物の`perl`、`ruby`、`python`の3つのプログラミング言語のスコアの平均値を格納してください。
 
 #### ヒント
 
@@ -96,33 +101,22 @@ $VAR1 = {
 
 ```
  0 - 19 =>
-20 - 39 => ★
-40 - 59 => ★★
-60 - 79 => ★★★
-80 - 99 => ★★★★
-100     => ★★★★★
-```
-
-#### ヒント
-
-日本語の全角文字を出力するので、文字化けしないよう`use warnings;`の下などに`binmode STDOUT, ":utf8";`と書いておくとよいでしょう。
-
-```
-#!/usr/bin/env perl
-use strict;
-use warnings;
-binmode STDOUT, ":utf8";
+20 - 39 => *
+40 - 59 => **
+60 - 79 => ***
+80 - 99 => ****
+100     => *****
 ```
 
 #### 出力例
 
 ```
 bob
-  perl   : ★★
+  perl   : **
   python :
-  ruby   : ★
-  php    : ★
-  binary : ★★
+  ruby   : *
+  php    : *
+  binary : **
 ```
 
 
